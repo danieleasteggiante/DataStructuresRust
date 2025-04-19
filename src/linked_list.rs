@@ -70,8 +70,6 @@ impl<T: PartialEq + Debug> LinkedList<T> {
                 return;
             }
             current = &mut current.as_mut().unwrap().next;
-            
         }
-        
     }
 }
