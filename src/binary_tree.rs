@@ -26,10 +26,10 @@ impl<T> From<Node<T>> for Option<Box<Node<T>>> {
 }
 
 impl<T> Tree<T> {
-    pub(crate) fn new() -> Self {
+    pub fn new() -> Self {
         Tree { root: None }
     }
-    pub(crate) fn insert(&mut self, value: T)
+    pub fn insert(&mut self, value: T)
     where
         T: PartialOrd,
     {

@@ -1,6 +1,4 @@
 use std::fmt::Debug;
-use std::io::Error;
-use std::thread::current;
 
 #[derive(Debug)]
 pub struct Node<T> {
@@ -18,7 +16,7 @@ impl<T: PartialEq + Debug> LinkedList<T> {
         LinkedList { head: None , len: 0 }
     }
 
-    pub(crate) fn add(&mut self, value: T) {
+    pub fn add(&mut self, value: T) {
         self.len += 1;
         let new_node = Node {
             value: Some(value),
