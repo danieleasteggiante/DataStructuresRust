@@ -6,6 +6,7 @@ pub struct Node<T> {
     pub next: Option<Box<Node<T>>>,
 }
 
+#[derive(Debug)]
 pub struct LinkedList<T> {
     pub head: Option<Box<Node<T>>>,
     pub len: usize,
@@ -70,4 +71,20 @@ impl<T: PartialEq + Debug> LinkedList<T> {
             current = &mut current.as_mut().unwrap().next;
         }
     }
+    pub fn reverse(&mut self) {
+        let mut current = &mut self.head;
+        let mut prev: Option<Box<Node<T>>> = None;
+        let mut next: Option<Box<Node<T>>> = None;
+        while let Some(mut node) = current.take() {
+            next = node.next.take(); 
+            node.next = prev.take(); 
+            if next.is_none() {
+                self.head = Some(node); 
+                return;
+            }
+            prev = Some(node); 
+            current = &mut next; 
+        }
+    }
+
 }

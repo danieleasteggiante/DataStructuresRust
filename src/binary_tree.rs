@@ -38,7 +38,8 @@ impl<T> Tree<T> {
             Some(node) => Tree::insert_recursively(node, value),
         }
     }
-
+    
+    
     fn insert_recursively(node: &mut Box<Node<T>>, value: T)
     where
         T: PartialOrd,
